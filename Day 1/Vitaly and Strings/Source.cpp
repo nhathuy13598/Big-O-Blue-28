@@ -8,31 +8,41 @@ int main()
 
 	for (int i = 0; i < S.size(); i++)
 	{
-		if (S[i] == T[i])
+		if (S[i] != T[i])
 		{
-			if (i == S.size() - 1)
+			for (int j = i + 1; j < S.size(); j++)
 			{
-				std::cout << "No such string" << std::endl;
+				if (S[j] + 1 <= 'z')
+				{
+					S[j] += 1;
+					std::cout << S << std::endl;
+					return 0;
+				}
 			}
-		}
-		else
-		{
-			if (i != S.size() - 1)
+			if (S[i] + 1 < T[i])
 			{
-				std::cout << "No such string" << std::endl;
+				S[i] += 1;
+				std::cout << S << std::endl;
+				return 0;
 			}
 			else
 			{
-				if (S[i] + 1 < T[i])
+				// S[i] + 1 == T[i]
+				S[i] += 1;
+				for (int j = i + 1; j < S.size(); j++)
 				{
-					S[i] = S[i] + 1;
-					std::cout << S[i] << std::endl;
-				}
-				else
-				{
-					std::cout << "No such string" << std::endl;
+					S[j] = 'a';
+					if (S[j] < T[j])
+					{
+						std::cout << S << std::endl;
+						return 0;
+					}
 				}
 			}
+		}
+		if (i == S.size() - 1)
+		{
+			std::cout << "No such string" << std::endl;
 		}
 	}
 	return 0;
