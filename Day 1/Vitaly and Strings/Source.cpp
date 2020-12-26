@@ -6,44 +6,25 @@ int main()
 	std::cin >> S;
 	std::cin >> T;
 
-	for (int i = 0; i < S.size(); i++)
+	for (int i = S.size() - 1; i >= 0; i--)
 	{
-		if (S[i] != T[i])
+		if (S[i] != 'z')
 		{
-			for (int j = i + 1; j < S.size(); j++)
-			{
-				if (S[j] + 1 <= 'z')
-				{
-					S[j] += 1;
-					std::cout << S << std::endl;
-					return 0;
-				}
-			}
-			if (S[i] + 1 < T[i])
-			{
-				S[i] += 1;
-				std::cout << S << std::endl;
-				return 0;
-			}
-			else
-			{
-				// S[i] + 1 == T[i]
-				S[i] += 1;
-				for (int j = i + 1; j < S.size(); j++)
-				{
-					S[j] = 'a';
-					if (S[j] < T[j])
-					{
-						std::cout << S << std::endl;
-						return 0;
-					}
-				}
-			}
+			S[i] = S[i] + 1;
+			break;
 		}
-		if (i == S.size() - 1)
+		else
 		{
-			std::cout << "No such string" << std::endl;
+			S[i] = 'a';
 		}
+	}
+	if (S == T)
+	{
+		std::cout << "No such string" << std::endl;
+	}
+	else
+	{
+		std::cout << S << std::endl;
 	}
 	return 0;
 }
