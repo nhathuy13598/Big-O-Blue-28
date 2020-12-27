@@ -23,16 +23,21 @@ int main()
 		{
 			count += 1;
 		}
-		R += 1;
-
+		F[arr[R]] += 1;
+		
 		while (count == k)
 		{
 			F[arr[L]] -= 1;
 			if (F[arr[L]] == 0)
 			{
-
+				std::cout << L + 1 << " " << R + 1 << std::endl;
+				return 0;
 			}
+			L += 1;
 		}
+		R += 1;
 	}
+	std::cout<<"-1 -1"<<std::endl;
+
 	return 0;
 }
