@@ -22,26 +22,19 @@ int main()
 		prep.push_back(tmp);
 	}
 
-	std::vector<int> F;
-	F.resize(1000000 + 1, 0);
-
-	for (int i = 0; i < N + M; i++)
+	int i = 0, j = 0;
+	while (i < N && j < M)
 	{
-		if (i >= N && i < N + M)
+		if (prob[i] <= prep[j])
 		{
-			if (F[prep[i - N]] != 0)
-			{
-				F[prep[i - N]] -= 1;
-			}
+			i += 1;
+			j += 1;
 		}
 		else
 		{
-			if (F[prob[i]] == 0)
-			{
-				F[prob[i]] += 1;
-			}
+			j += 1;
 		}
 	}
-	std::cout << std::accumulate(F.begin(), F.end(), 0) << std::endl;
+	std::cout << N - i<< std::endl;
 	return 0;
 }

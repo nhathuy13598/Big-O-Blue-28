@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <algorithm>
 int main()
 {
 	int N;
@@ -13,43 +13,30 @@ int main()
 		std::cin >> temp;
 		nums.push_back(temp);
 	}
-	int L, R, max, min;
-	L = 0;
-	R = 0;
-	max = INT32_MIN;
-	min = INT32_MAX;
-	int len = 0;
+	std::vector<int> F;
+	F.resize(100000 + 1, 0);
+	int L = 0, R = 0;
+	int count = 0;
+	int ans = 0;
 	while (R < N)
 	{
-		if (nums[R] >= max)
+		if (F[nums[R]] == 0)
 		{
-			max = nums[R];
+			F[nums[R]] += 1;
+			count += 1;
 		}
-		if (nums[R] <= min)
+		while (count > 2)
 		{
-			min = nums[R];
-		}
-		if (nums[L] >= max)
-		{
-			max = nums[L];
-		}
-		if (nums[L] <= min)
-		{
-			min = nums[L];
-		}
-		if (max - min <= 1)
-		{
-			if (R - L >= len)
+			F[nums[L]] -= 1;
+			if (F[nums[L]] == 0)
 			{
-				len = R - L + 1;
+				count -= 1;
 			}
-			R += 1;
-		}
-		else
-		{
 			L += 1;
 		}
+		R += 1;
+		ans = std::max(ans, R - L);
 	}
-	std::cout << len << std::endl;
+	std::cout << ans << std::endl;
 	return 0;
 }
