@@ -6,48 +6,53 @@ int main()
 	std::string s, t;
 	std::cin >> s >> t;
 
-	if (s.size() < t.size())
+	bool automaton = false, arr = false;
+
+	int count_s[26] = { 0 }, count_t[26] = { 0 };
+	for (int i = 0; i < s.size(); i++)
 	{
-		std::cout << "need tree" << std::endl;
-		return 0;
+		count_s[s[i] - 'a'] += 1;
 	}
-	if (s.find(t) != std::string::npos)
-	{
-		std::cout << "automaton" << std::endl;
-		return 0;
-	}
-	std::string tmp = s;
 	for (int i = 0; i < t.size(); i++)
 	{
-		int index = tmp.find_first_of(t[i]);
-		if (index == std::string::npos)
+		count_t[t[i] - 'a'] += 1;
+	}
+
+	for (int i = 0; i < 26; i++)
+	{
+		if (count_t[i] != 0 && count_s[i] == 0)
 		{
 			std::cout << "need tree" << std::endl;
 			return 0;
 		}
-		tmp[index] = '*';
-	}
-
-	if (s.size() == t.size())
-	{
-		std::cout << "array" << std::endl;
-		return 0;
-	}
-
-	for (int i = 0; i < s.size(); i++)
-	{
-		if (t.find_first_of(s[i]) == std::string::npos)
+		if (count_s[i] > count_t[i])
 		{
-			s.erase(std::remove(s.begin(), s.end(), s[i]), s.end());
+			automaton = true;
 		}
 	}
-	if (s.find(t) != std::string::npos)
+
+	int index = -1;
+	for (int i = 0; i < t.size(); i++)
 	{
-		std::cout << "automaton" << std::endl;
+		index = s.find_first_of(t[i], index + 1);
+		if (index == std::string::npos)
+		{
+			arr = true;
+			break;
+		}
+	}
+
+	if (arr && automaton)
+	{
+		std::cout << "both" << std::endl;
+	}
+	else if (arr)
+	{
+		std::cout << "array" << std::endl;
 	}
 	else
 	{
-		std::cout << "both" << std::endl;
+		std::cout << "automaton" << std::endl;
 	}
 	return 0;
 }
