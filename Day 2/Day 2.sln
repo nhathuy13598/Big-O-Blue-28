@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wrath", "Wrath\Wrath.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Alice Bob and Chocolate", "Alice Bob and Chocolate\Alice Bob and Chocolate.vcxproj", "{815C8845-CE0D-47AE-B9FD-B562562F333C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dress'em in Vests!", "Dress'em in Vests!\Dress'em in Vests!.vcxproj", "{E8D70A6A-1C3C-4FAC-9CF4-E130C8D35FAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{815C8845-CE0D-47AE-B9FD-B562562F333C}.Release|x64.Build.0 = Release|x64
 		{815C8845-CE0D-47AE-B9FD-B562562F333C}.Release|x86.ActiveCfg = Release|Win32
 		{815C8845-CE0D-47AE-B9FD-B562562F333C}.Release|x86.Build.0 = Release|Win32
+		{E8D70A6A-1C3C-4FAC-9CF4-E130C8D35FAF}.Debug|x64.ActiveCfg = Debug|x64
+		{E8D70A6A-1C3C-4FAC-9CF4-E130C8D35FAF}.Debug|x64.Build.0 = Debug|x64
+		{E8D70A6A-1C3C-4FAC-9CF4-E130C8D35FAF}.Debug|x86.ActiveCfg = Debug|Win32
+		{E8D70A6A-1C3C-4FAC-9CF4-E130C8D35FAF}.Debug|x86.Build.0 = Debug|Win32
+		{E8D70A6A-1C3C-4FAC-9CF4-E130C8D35FAF}.Release|x64.ActiveCfg = Release|x64
+		{E8D70A6A-1C3C-4FAC-9CF4-E130C8D35FAF}.Release|x64.Build.0 = Release|x64
+		{E8D70A6A-1C3C-4FAC-9CF4-E130C8D35FAF}.Release|x86.ActiveCfg = Release|Win32
+		{E8D70A6A-1C3C-4FAC-9CF4-E130C8D35FAF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
