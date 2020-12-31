@@ -5,52 +5,31 @@ int main()
 {
 	int N;
 	std::cin >> N;
-	std::vector<int> nums;
-	nums.reserve(N);
+	std::vector<int> nums(N);
 
 	for (int i = 0; i < N; i++)
 	{
-		int tmp;
-		std::cin >> tmp;
-		nums.push_back(tmp);
+		std::cin >> nums[i];
 	}
 
 	int L = 0, R = N - 1;
 
-	int sereja = 0;
-	int dima = 0;
-	bool player = true;
+	int ans[2] = {};
+	int player = 0;
 	while (L <= R)
 	{
-		if (player)
+		if (nums[L] > nums[R])
 		{
-			if (nums[R] > nums[L])
-			{
-				sereja += nums[R];
-				R -= 1;
-			}
-			else
-			{
-				sereja += nums[L];
-				L += 1;
-			}
-			player = false;
+			ans[player] += nums[L];
+			L += 1;
 		}
 		else
 		{
-			if (nums[R] > nums[L])
-			{
-				dima += nums[R];
-				R -= 1;
-			}
-			else
-			{
-				dima += nums[L];
-				L += 1;
-			}
-			player = true;
+			ans[player] += nums[R];
+			R -= 1;
 		}
+		player = 1 - player;
 	}
-	std::cout << sereja << " " << dima << std::endl;
+	std::cout << ans[0] << " " << ans[1] << std::endl;
 	return 0;
 }
