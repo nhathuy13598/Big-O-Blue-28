@@ -5,13 +5,10 @@ int main()
 {
 	int N;
 	std::cin >> N;
-	std::vector<int> nums;
-	nums.reserve(N);
+	std::vector<int> nums(N);
 	for (int i = 0; i < N; i++)
 	{
-		int temp;
-		std::cin >> temp;
-		nums.push_back(temp);
+		std::cin >> nums[i];
 	}
 	std::vector<int> F;
 	F.resize(100000 + 1, 0);
@@ -22,10 +19,10 @@ int main()
 	{
 		if (F[nums[R]] == 0)
 		{
-			F[nums[R]] += 1;
 			count += 1;
 		}
-		while (count > 2)
+		F[nums[R]] += 1;
+		while (L < N && count > 2)
 		{
 			F[nums[L]] -= 1;
 			if (F[nums[L]] == 0)
