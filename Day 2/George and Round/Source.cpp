@@ -4,22 +4,16 @@
 int main()
 {
 	int N, M;
-	std::vector<int> prob, prep;
 	std::cin >> N >> M;
-
-	prob.reserve(N);
-	prep.reserve(M);
+	std::vector<int> prob(N), prep(M);
+	
 	for (int i = 0; i < N; i++)
 	{
-		int tmp;
-		std::cin >> tmp;
-		prob.push_back(tmp);
+		std::cin >> prob[i];
 	}
 	for (int i = 0; i < M; i++)
 	{
-		int tmp;
-		std::cin >> tmp;
-		prep.push_back(tmp);
+		std::cin >> prep[i];
 	}
 
 	int i = 0, j = 0;
@@ -35,6 +29,6 @@ int main()
 			j += 1;
 		}
 	}
-	std::cout << N - i<< std::endl;
+	std::cout << N - i << std::endl;
 	return 0;
 }
