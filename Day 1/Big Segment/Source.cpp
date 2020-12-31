@@ -1,67 +1,37 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 int main()
 {
 	int N;
 	int L, R;
 	int min = INT32_MAX, max = INT32_MIN;
 	std::cin >> N;
-	int res = -1;
-	bool isChange = false;
-	int rootL = 0, rootR = 0;
+	int ans = -1;
 	for (int i = 0; i < N; i++)
 	{
 		std::cin >> L >> R;
-		if (i == 0)
-		{
-			rootL = L;
-			rootR = R;
-		}
-		if (L == R)
-		{
-			if (L < min)
-				min = L;
-			if (L > max)
-				max = L;
-			continue;
-		}
-		if (R <= min)
-		{
-			min = L;
-			res = -1;
-		}
-		else if (R > max)
-		{
-			max = R;
-			res = -1;
-		}
-		if (L >= max)
-		{
-			max = R;
-			res = -1;
-		}
-		else if (L < min)
-		{
-			min = L; 
-			res = -1;
-		}
+		
+		int M, m;
+		m = std::min(L, min);
+		M = std::max(R, max);
 
-		if (min == L && max == R)
+		if (m == L && M == R)
 		{
-			if (i != 0)
+			ans = i + 1;
+		}
+		else
+		{
+			if (L < min || R > max)
 			{
-				res = i + 1;
+				ans = -1;
 			}
 		}
+		
+		min = m;
+		max = M;
 	}
-	if (min == rootL && max == rootR)
-	{
-		std::cout << 1 << std::endl;
-	}
-	else
-	{
-		std::cout << res << std::endl;
-	}
+	std::cout << ans << std::endl;
 	
 	return 0;
 }
