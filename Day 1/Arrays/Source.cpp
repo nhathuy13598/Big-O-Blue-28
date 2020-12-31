@@ -6,34 +6,24 @@ int main()
 	int k, m;
 	std::cin >> na >> nb;
 	std::cin >> k >> m;
-	std::vector<int> a, b;
-	a.reserve(na);
-	b.reserve(nb);
+	std::vector<int> a(na), b(nb);
+	
 	for (int i = 0; i < na; i++)
 	{
-		int tmp;
-		std::cin >> tmp;
-		a.push_back(tmp);
+		std::cin >> a[i];
 	}
 
 	for (int i = 0; i < nb; i++)
 	{
-		int tmp;
-		std::cin >> tmp;
-		b.push_back(tmp);
+		std::cin >> b[i];
 	}
-
-	for (int i = 0; i < nb; i++)
+	if (a[k - 1] < b[nb - m])
 	{
-		if (b[i] > a[k - 1])
-		{
-			if (i + m - 1 < nb)
-			{
-				std::cout << "YES" << std::endl;
-				return 0;
-			}
-		}
+		std::cout << "YES" << std::endl;
 	}
-	std::cout << "NO" << std::endl;
+	else
+	{
+		std::cout << "NO" << std::endl;
+	}
 	return 0;
 }
