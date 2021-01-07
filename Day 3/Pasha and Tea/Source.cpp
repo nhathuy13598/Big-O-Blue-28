@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+#include <numeric>
+#include <iomanip>
 int main()
 {
 	int k, N;
@@ -12,34 +13,8 @@ int main()
 		std::cin >> wines[i];
 	}
 	std::sort(wines.begin(), wines.end());
-	double max = 0.0;
-	int L = 0;
-	int R = k;
-	while (R < 2 * k)
-	{
-		if (wines[R] / 2.0 < wines[L])
-		{
-			double wine = (wines[R] / 2.0) * (double(R) - L + 2 * (2.0 * k - R));
-			max = std::max(wine, max);
-			R += 1;
-			continue;
-		}
-		else if (wines[R] / 2.0 == wines[L])
-		{
-			double wine = (wines[R] / 2.0) * (double(R) - L + 2 * (2.0 * k - R));
-			max = std::max(wine, max);
-			L += 1;
-			continue;
-		}
-		if (L == k - 1)
-		{
-			double wine = wines[R] * (2.0 * k - R);
-			max = std::max(wine, max);
-			R += 1;
-		}
-		L += 1;
-	}
-	max = std::min(max, double(N));
-	std::cout << max << std::endl;
+	double m = std::min(1.0 * wines[0], double (1.0) * wines[k] / 2);
+	double total = 3 * m * k;
+	std::cout << std::setprecision(9) << std::min(total, double (1.0) * N);
 	return 0;
 }
