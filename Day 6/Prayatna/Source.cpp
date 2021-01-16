@@ -26,17 +26,16 @@ int main()
 {
 	int T;
 	std::cin >> T;
-	std::vector<int> peers(T);
-	for (int i = 0; i < T; i++)
-	{
-		std::cin >> peers[i];
-	}
 	std::vector<int> ans;
 	for (int i = 0; i < T; i++)
 	{
-		std::vector<std::vector<int>> vertices(peers[i]);
-		std::vector<bool> visited(peers[i], false);
-		for (int j = 0; j < peers[i] / 2; j++)
+		int N, E;
+		std::cin >> N >> E;
+		std::vector<std::vector<int>> vertices(N);
+		std::vector<bool> visited(N, false);
+		
+		
+		for (int j = 0; j < E; j++)
 		{
 			std::string input;
 			std::getline(std::cin, input);
@@ -56,8 +55,13 @@ int main()
 				src = first;
 			}
 		}
+		if (E == 0)
+		{
+			ans.push_back(vertices.size());
+			continue;
+		}
 		int count = 0;
-		for (int j = 0; j < peers[i]; j++)
+		for (int j = 1; j < N; j++)
 		{
 			if (visited[j] == false)
 			{
@@ -65,11 +69,14 @@ int main()
 				count += 1;
 			}
 		}
+		
 		ans.push_back(count);
+		
 	}
 	for (int i = 0; i < ans.size(); i++)
 	{
 		std::cout << ans[i] << std::endl;
 	}
+	
 	return 0;
 }

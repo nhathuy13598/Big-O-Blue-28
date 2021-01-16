@@ -1,30 +1,13 @@
 #include <iostream>
 #include <stack>
 #include <vector>
-bool DFS(int i, std::vector<std::vector<int>>& arr, std::vector<bool>& visited)
+bool DFS(int i, std::vector<std::vector<int>>& arr, std::vector<int>& visited)
 {
-	std::stack<int> st;
-	st.push(i);
-	visited[i] = true;
-	while (!st.empty())
+	visited[i] = 1;
+	for (int j = 0; j < arr[i].size(); j++)
 	{
-		int u = st.top();
-		st.pop();
-		for (int i = 0; i < arr[u].size(); i++)
-		{
-			int v = arr[u][i];
-			if (visited[v] == true)
-			{
-				return true;
-			}
-			else
-			{
-				st.push(v);
-				visited[v] = true;
-			}
-		}
+
 	}
-	return false;
 }
 int main()
 {
@@ -34,7 +17,7 @@ int main()
 	{
 		std::cin >> N >> M;
 		std::vector<std::vector<int>> arr(size_t(N) + 1);
-		std::vector<bool> visited(size_t(N) + 1, false);
+		std::vector<int> visited(size_t(N) + 1, false);
 		for (int j = 0; j < M; j++)
 		{
 			int a, b;
@@ -44,15 +27,11 @@ int main()
 
 		for (int i = 1; i <= N; i++)
 		{
-			if (visited[i] == false)
+			if (DFS(i, arr, visited))
 			{
-				if (DFS(i, arr, visited))
-				{
-					std::cout << "YES" << std::endl;
-					break;
-				}
+				std::cout << "YES" << std::endl;
 			}
-			if (i == N - 1)
+			else
 			{
 				std::cout << "NO" << std::endl;
 			}
