@@ -9,11 +9,11 @@ int main()
 	{
 		std::cout << "Case " << test++ << ":" << std::endl;
 		std::queue<int> q;
-		for (int i = 1; i <= P; i++)
+		int size = std::min(C, P);
+		for (int i = 1; i <= size; i++)
 		{
 			q.push(i);
 		}
-		std::vector<int> commands(C);
 		for (int i = 0; i < C; i++)
 		{
 			char c;
@@ -21,49 +21,25 @@ int main()
 			std::cin >> c;
 			if (c == 'N')
 			{
-				commands[i] = 0;
-			}
-			else
-			{
-				std::cin >> p;
-				commands[i] = p;
-			}
-		}
-		for (int i = 0; i < C; i++)
-		{
-			if (commands[i] == 0)
-			{
 				std::cout << q.front() << std::endl;
 				q.push(q.front());
 				q.pop();
 			}
 			else
 			{
-				q.push(commands[i]);
-				bool remove_dup = false;
-				while (true)
+				std::cin >> p;
+				q.push(p);
+				for (int i = 0; i < q.size(); i++)
 				{
-					if (q.front() != commands[i])
-					{
-						q.push(q.front());
-						q.pop();
-					}
-					else
-					{
-						if (remove_dup == false)
-						{
-							q.pop();
-							remove_dup = true;
-						}
-						else
-						{
-							break;
-						}
+					int temp = q.front();
+					q.pop();
+					if (temp != p) {
+						q.push(temp);
 					}
 				}
 			}
 		}
-		std::cin >> P >> C;
+		P -= 1;
 	}
 	return 0;
 }

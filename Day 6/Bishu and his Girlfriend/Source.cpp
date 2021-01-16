@@ -2,10 +2,9 @@
 #include <vector>
 #include <stack>
 #include <algorithm>
-#define MAX_VERTICE 1000
-int DFS(int src, bool visited[], std::vector<int> vertice[], std::vector<int>& girls)
+
+void DFS(int src, std::vector<bool>& visited, std::vector<std::vector<int>> vertice, std::vector<int>& girls, std::vector<int>& ans)
 {
-	int max = UINT32_MAX;
 	visited[src] = true;
 	std::stack<int> st;
 	st.push(src);
@@ -19,26 +18,18 @@ int DFS(int src, bool visited[], std::vector<int> vertice[], std::vector<int>& g
 			if (!visited[v])
 			{
 				visited[v] = true;
-				if (v < max)
-				{
-					st.push(v);
-				}
-				if (std::find(girls.begin(), girls.end(), v) != girls.end())
-				{
-					max = std::max(v, max);
-				}
-				
+				st.push(v);
+				ans[v] = ans[u] + 1;
 			}
 		}
 	}
-	return max;
 }
 int main()
 {
 	int N, u, v, Q;
 	std::cin >> N;
-	std::vector<int> vertice[MAX_VERTICE];
-	bool visited[MAX_VERTICE] = { false };
+	std::vector<std::vector<int>> vertice(N + 1);
+	std::vector<bool> visited(N + 1, false);
 	for (int i = 0; i < N - 1; i++)
 	{
 		std::cin >> u >> v;
@@ -51,7 +42,21 @@ int main()
 	{
 		std::cin >> girls[i];
 	}
-	
-	std::cout << DFS(1, visited, vertice, girls) << std::endl;
+	std::vector<int> ans(N + 1, 0);
+	DFS(1, visited, vertice, girls, ans);
+	int min = 1001, index = 1001;
+	for (int i = 0; i < Q; i++)
+	{
+		if (ans[girls[i]] < min)
+		{
+			min = ans[girls[i]];
+			index = girls[i];
+		}
+		else if (ans[girls[i]] == min)
+		{
+			index = std::min(girls[i], index);
+		}
+	}
+	std::cout << index << std::endl;
 	return 0;
 }
