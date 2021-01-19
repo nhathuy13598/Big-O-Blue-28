@@ -17,16 +17,19 @@ int main()
 			{
 				st.push('<');
 			}
+			else if (st.empty())
+			{
+				break;
+			}
 			else
 			{
-				if (!st.empty() && st.top() == '<')
-				{
-					st.pop();
-					count += 1;
-				}
+				st.pop();
+				if (st.empty())
+					count = i + 1;
 			}
 		}
-		std::cout << 2 * count << std::endl;
+		
+		std::cout << count << std::endl;
 	}
 	return 0;
 }
