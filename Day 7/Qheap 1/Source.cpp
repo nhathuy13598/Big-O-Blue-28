@@ -7,7 +7,7 @@ int main()
 	std::cin >> Q;
 	int type, value;
 	std::priority_queue<int, std::vector<int>, std::greater<int>> pq;
-	std::unordered_map<int, bool> del;
+	std::unordered_map<int, int> del;
 	for (int i = 0; i < Q; i++)
 	{
 		std::cin >> type;
@@ -19,13 +19,17 @@ int main()
 		else if (type == 2)
 		{
 			std::cin >> value;
-			del[value] = true;
+			del[value] += 1;
 		}
 		else
 		{
 			while (del.find(pq.top()) != del.end())
 			{
-				del.erase(pq.top());
+				del[pq.top()] -= 1;
+				if (del[pq.top()] == 0)
+				{
+					del.erase(pq.top());
+				}
 				pq.pop();
 			}
 			std::cout << pq.top() << std::endl;

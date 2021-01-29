@@ -28,8 +28,9 @@ int main()
 			else
 			{
 				std::cin >> p;
+				int size = q.size();
 				q.push(p);
-				for (int i = 0; i < q.size(); i++)
+				for (int i = 0; i < size; i++)
 				{
 					int temp = q.front();
 					q.pop();
@@ -39,7 +40,7 @@ int main()
 				}
 			}
 		}
-		P -= 1;
+		std::cin >> P >> C;
 	}
 	return 0;
 }

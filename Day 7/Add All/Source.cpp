@@ -6,7 +6,7 @@ int main()
 	std::cin >> N;
 	while (N != 0)
 	{
-		std::priority_queue<int, std::vector<int>, std::greater<int>> pq;
+		std::priority_queue<unsigned long, std::vector<unsigned long>, std::greater<unsigned long>> pq;
 		for (int i = 0; i < N; i++)
 		{
 			int a;
@@ -14,14 +14,14 @@ int main()
 			pq.push(a);
 		}
 		unsigned long cost = 0;
-		unsigned long first = (unsigned long)pq.top();
-		pq.pop();
-		while (!pq.empty())
+		while (!pq.empty() && pq.size() != 1)
 		{
+			unsigned long first = (unsigned long)pq.top();
+			pq.pop();
 			unsigned long second = (unsigned long)pq.top();
 			pq.pop();
 			cost += first + second;
-			first = first + second;
+			pq.push(first + second);
 		}
 		std::cout << cost << std::endl;
 		std::cin >> N;
