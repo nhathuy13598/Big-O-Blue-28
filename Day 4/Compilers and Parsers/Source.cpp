@@ -24,14 +24,12 @@ int main()
 			else
 			{
 				st.pop();
-				count += 1;
+				if (st.empty())
+					count = i + 1;
 			}
 		}
-		if (!st.empty())
-		{
-			count = 0;
-		}
-		std::cout << 2 * count << std::endl;
+		
+		std::cout << count << std::endl;
 	}
 	return 0;
 }
