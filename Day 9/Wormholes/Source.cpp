@@ -55,17 +55,13 @@ int main()
 			cin >> u >> v >> w;
 			graph.push_back(Edge{ u,v,w });
 		}
-		for (int s = 0; s < n; s++)
+		if (BellmanFord(0))
 		{
-			if (BellmanFord(s))
-			{
-				cout << "possible" << endl;
-				break;
-			}
-			if (s == n - 1)
-			{
-				cout << "not possible" << endl;
-			}
+			cout << "possible" << endl;
+		}
+		else
+		{
+			cout << "not possible" << endl;
 		}
 	}
 	return 0;
