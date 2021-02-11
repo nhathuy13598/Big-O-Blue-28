@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "That is Your Queue", "That 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Compilers and Parsers", "Compilers and Parsers\Compilers and Parsers.vcxproj", "{59C90F05-F3D4-42EA-9FEC-49C7C5E0C9CF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mass of Molecule", "Mass of Molecule\Mass of Molecule.vcxproj", "{D1790C6D-6974-43AE-A0C0-D53D24E83FA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{59C90F05-F3D4-42EA-9FEC-49C7C5E0C9CF}.Release|x64.Build.0 = Release|x64
 		{59C90F05-F3D4-42EA-9FEC-49C7C5E0C9CF}.Release|x86.ActiveCfg = Release|Win32
 		{59C90F05-F3D4-42EA-9FEC-49C7C5E0C9CF}.Release|x86.Build.0 = Release|Win32
+		{D1790C6D-6974-43AE-A0C0-D53D24E83FA0}.Debug|x64.ActiveCfg = Debug|x64
+		{D1790C6D-6974-43AE-A0C0-D53D24E83FA0}.Debug|x64.Build.0 = Debug|x64
+		{D1790C6D-6974-43AE-A0C0-D53D24E83FA0}.Debug|x86.ActiveCfg = Debug|Win32
+		{D1790C6D-6974-43AE-A0C0-D53D24E83FA0}.Debug|x86.Build.0 = Debug|Win32
+		{D1790C6D-6974-43AE-A0C0-D53D24E83FA0}.Release|x64.ActiveCfg = Release|x64
+		{D1790C6D-6974-43AE-A0C0-D53D24E83FA0}.Release|x64.Build.0 = Release|x64
+		{D1790C6D-6974-43AE-A0C0-D53D24E83FA0}.Release|x86.ActiveCfg = Release|Win32
+		{D1790C6D-6974-43AE-A0C0-D53D24E83FA0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
