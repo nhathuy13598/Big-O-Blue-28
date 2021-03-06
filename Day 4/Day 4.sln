@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mass of Molecule", "Mass of
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Processing Queries", "Processing Queries\Processing Queries.vcxproj", "{F0FC0E5D-4ABD-402E-A902-9DCC54C8694F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ferry Loading III", "Ferry Loading III\Ferry Loading III.vcxproj", "{B5B496AA-CBBC-4208-A929-A8038DF71C01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{F0FC0E5D-4ABD-402E-A902-9DCC54C8694F}.Release|x64.Build.0 = Release|x64
 		{F0FC0E5D-4ABD-402E-A902-9DCC54C8694F}.Release|x86.ActiveCfg = Release|Win32
 		{F0FC0E5D-4ABD-402E-A902-9DCC54C8694F}.Release|x86.Build.0 = Release|Win32
+		{B5B496AA-CBBC-4208-A929-A8038DF71C01}.Debug|x64.ActiveCfg = Debug|x64
+		{B5B496AA-CBBC-4208-A929-A8038DF71C01}.Debug|x64.Build.0 = Debug|x64
+		{B5B496AA-CBBC-4208-A929-A8038DF71C01}.Debug|x86.ActiveCfg = Debug|Win32
+		{B5B496AA-CBBC-4208-A929-A8038DF71C01}.Debug|x86.Build.0 = Debug|Win32
+		{B5B496AA-CBBC-4208-A929-A8038DF71C01}.Release|x64.ActiveCfg = Release|x64
+		{B5B496AA-CBBC-4208-A929-A8038DF71C01}.Release|x64.Build.0 = Release|x64
+		{B5B496AA-CBBC-4208-A929-A8038DF71C01}.Release|x86.ActiveCfg = Release|Win32
+		{B5B496AA-CBBC-4208-A929-A8038DF71C01}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
